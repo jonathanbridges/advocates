@@ -1,41 +1,88 @@
-## Solace Candidate Assignment
+# Healthcare Advocates Search Platform 🏥
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+A modern web application built with Next.js 14 for searching and filtering healthcare advocates based on various criteria like specialties, location, and experience.
 
-## Getting Started
+## Features ✨
 
-Install dependencies
+- 🔍 Real-time search with debouncing
+- 📱 Fully responsive design
+- 🎯 Advanced filtering options
+- 📊 Server-side pagination
+- 🚀 Optimized performance
+- 💅 Modern UI with Material-UI
 
+## Tech Stack 🛠️
+
+- Next.js 14
+- TypeScript
+- Material-UI
+- SQLite (for demo purposes)
+
+## Getting Started 🚀
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
 ```bash
-npm i
+git clone https://github.com/yourusername/healthcare-advocates.git
+cd healthcare-advocates
 ```
 
-Run the development server:
+2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
 
+3. Set up environment variables
+```bash
+cp .env.example .env.local
+```
+
+4. Run the development server
 ```bash
 npm run dev
+# or
+yarn dev
 ```
 
-## Database set up
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The app is configured to return a default list of advocates. This will allow you to get the app up and running without needing to configure a database. If you’d like to configure a database, you’re encouraged to do so. You can uncomment the url in `.env` and the line in `src/app/api/advocates/route.ts` to test retrieving advocates from the database.
+## Project Structure 📁
 
-1. Feel free to use whatever configuration of postgres you like. The project is set up to use docker-compose.yml to set up postgres. The url is in .env.
-
-```bash
-docker compose up -d
+```
+src/
+├── app/                    # Next.js app directory
+│   ├── api/               # API routes
+│   │   └── advocates/     # Advocates API endpoints
+│   └── advocates/         # Advocates page components
+├── components/            # Shared components
+├── lib/                   # Utility functions
+└── types/                # TypeScript type definitions
 ```
 
-2. Create a `solaceassignment` database.
+## Development 🔧
 
-3. Push migration to the database
+- `npm run dev`: Start development server
+- `npm run build`: Build for production
+- `npm run start`: Start production server
+- `npm run lint`: Run ESLint
+- `npm run type-check`: Run TypeScript compiler check
 
-```bash
-npx drizzle-kit push
-```
+## Contributing 🤝
 
-4. Seed the database
+Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/yourusername/healthcare-advocates/issues).
 
-```bash
-curl -X POST http://localhost:3000/api/seed
-```
+## License 📝
+
+This project is [MIT](LICENSE) licensed.
+
+## Learn More 📚
+
+For a detailed discussion of the implementation, challenges, and future improvements, check out the [DISCUSSION.md](DISCUSSION.md) file.

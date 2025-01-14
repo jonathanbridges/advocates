@@ -1,22 +1,24 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import type { Metadata } from 'next';
+import Providers from './providers';
 
 export const metadata: Metadata = {
-  title: "Solace Candidate Assignment",
-  description: "Show us what you got",
+  title: 'Healthcare Advocates',
+  description: 'Find and connect with healthcare advocates based on specialties, location, and experience.',
+  keywords: ['healthcare', 'advocates', 'medical', 'specialists', 'doctors', 'search'],
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }

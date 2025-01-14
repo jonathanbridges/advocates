@@ -3,7 +3,6 @@ import {
   pgTable,
   integer,
   text,
-  jsonb,
   serial,
   timestamp,
   bigint,
@@ -15,7 +14,9 @@ const advocates = pgTable("advocates", {
   lastName: text("last_name").notNull(),
   city: text("city").notNull(),
   degree: text("degree").notNull(),
-  specialties: jsonb("payload").default([]).notNull(),
+  // Using text[] instead of JSONB for better array containment operations in search queries
+  // See: https://github.com/drizzle-team/drizzle-orm/issues/595
+  specialties: text("specialties").array().notNull().default(sql`ARRAY[]::text[]`),
   yearsOfExperience: integer("years_of_experience").notNull(),
   phoneNumber: bigint("phone_number", { mode: "number" }).notNull(),
   createdAt: timestamp("created_at").default(sql`CURRENT_TIMESTAMP`),
